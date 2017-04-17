@@ -1,18 +1,12 @@
 package main
 
 import (
-	"net/http"
-	"github.com/gorilla/mux"
-
-	"github.com/guidiego/generic-api-mgo/person"
+	"github.com/guidiego/net-mgo/person"
 )
 
 func main() {
-	router := mux.NewRouter()
-	for _, v :=  range []HandleList{
-		person.HandleList,
-	} { v.InsertInto(router) }
-	
+	person.New("Guilherme", 18);
+	person.SaveDocument();
 
-	http.ListenAndServe(":3000", router)
+	println("Saved file!")
 }
